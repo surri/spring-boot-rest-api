@@ -1,5 +1,7 @@
 package com.surri.springboot.users;
 
+import java.util.Optional;
+
 import com.surri.springboot.users.Entities.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,5 +18,9 @@ public class UsersService {
     public Page<User> findAll() {
         Pageable pageable = PageRequest.of(0,3);
         return usersRepository.findAll(pageable);
+    }
+
+    public Optional<User> findById(Long id) {
+        return usersRepository.findById(id);
     }
 }
